@@ -89,25 +89,6 @@ void bitonicSequenceGenerator(int startIndex, int lastIndex, int *ar) // Generat
     }
 }
 
-void seq_bitonicSequenceGenerator(int startIndex, int lastIndex, int *ar) // Generate a bitonic sequence from a random order
-{
-    int noOfElements = lastIndex - startIndex + 1;
-    for (int j = 2; j <= noOfElements; j = j * 2)
-    {
-        for (int i = 0; i < noOfElements; i = i + j)
-        {
-            if (((i / j) % 2) == 0)
-            {
-                bitonicSortFromBitonicSequence(i, i + j - 1, 1, ar);
-            }
-            else
-            {
-                bitonicSortFromBitonicSequence(i, i + j - 1, 0, ar);
-            }
-        }
-    }
-}
-
 int main() //main driver function
 {
     omp_set_dynamic(0);                           // Disabled so that the os doesnt override the thread settings
@@ -127,8 +108,4 @@ int main() //main driver function
     bitonicSequenceGenerator(0, n - 1, ar);
     end = omp_get_wtime();
     cout << "Time taken for Parallel Execution  : " << end-start << endl;
-    start = omp_get_wtime();
-    seq_bitonicSequenceGenerator(0, n - 1, ar);
-    end = omp_get_wtime();
-    cout << "Time taken for Serial Execution    : " << end-start << endl;
 }
