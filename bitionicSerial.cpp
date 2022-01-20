@@ -4,16 +4,12 @@
 
 using namespace std; 
 
-// compare and swap the elements if element of
-// first half is greater than second half while 
-// merging two bitonic sequences
 void compAndSwap(int a[], int i, int j, int order) 
 { 
   if (order == (a[i]>a[j])) 
     swap(a[i],a[j]); 
-} 
+}
 
-//function to merge two bitonic sequences 
 void bitonicMerge(int a[], int low, int length, int order) 
 { 
     if (length>1) 
@@ -26,7 +22,6 @@ void bitonicMerge(int a[], int low, int length, int order)
   } 
 } 
 
-// Bitonic sort function
 void bitonicSort(int a[],int low, int length, int order) 
 { 
   if (length>1) 
@@ -44,7 +39,6 @@ void bitonicSort(int a[],int low, int length, int order)
   } 
 } 
 
-// Driver function 
 int main() 
 { 
     
@@ -71,5 +65,5 @@ int main()
 
     std::cout << "Time taken for serial execution : " << elapsed_seconds.count() << "s\n";
 
-  return 0; 
+    return 0; 
 }
